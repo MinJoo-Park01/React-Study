@@ -3,7 +3,7 @@ import React from 'react';
 import MyComponent from "./MyComponent";
 
 const App = () => {
-  return <MyComponent />;
+  return <MyComponent name="박민주" />;
 };
 
 export default App;
