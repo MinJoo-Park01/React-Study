@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class MyComponent extends Component {
+class MouseTracker extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleMouseMove = this.handleMouseMove.bind(this);
+        this.state = { x: 0, y: 0 };
+    }
+
+    handleMouseMove(event) {
+        this.setState({
+            x: event.clientX,
+            y: event.clientY
+        });
+    }
+
     render() {
-        const { name, favoriteNumber, children } = this.props;
         return (
-            <div>
-                안녕하세요. 제 이름은 {name}입니다.
-                children 값은 {children}
-                입니다.
-                <br />
-                제가 좋아하는 숫자는 {favoriteNumber}입니다.
+            <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+                <h1>Move the mouse around!</h1>
+                <p>
+                    The current mouse position is ({this.state.x}, {this.state.y})
+                </p>
+
             </div>
         );
     }
 }
-
-MyComponent.defaultProps = {
-    name: '기본이름'
-};
-//props를 따로 설정하지 않았을 때 보여주는 기본값
-
-MyComponent.propTypes = {
-    name: PropTypes.string,
-    favoriteNumber: PropTypes.number.isRequired
-}; //name값을 string형태로 전달
-
-export default MyComponent;

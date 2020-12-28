@@ -1,11 +1,36 @@
 import React, { Component } from 'react';
 //import App from './App';
-import MyComponent from "./MyComponent";
+//import MouseTracker from "./MyComponent";
 
 const App = () => {
-  return <MyComponent name="React" favoriteNumber={1}>리액트</MyComponent>;
+  return <MouseTracker>리액트</MouseTracker>;
 };
-//태그 사이에 있는 내용을 보여주는 children
-//숫자로 나타내면, 표시가 되긴하네,,,?
-//콘솔창에 오류가 뜨긴함
+
+class MouseTracker extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.state = { x: 0, y: 0 };
+  }
+
+  handleMouseMove(event) {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY
+    });
+  }
+
+  render() {
+    return (
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        <h1>Move the mouse around!</h1>
+        <p>
+          The current mouse position is ({this.state.x}, {this.state.y})
+              </p>
+
+      </div>
+    );
+  }
+}
+
 export default App;
