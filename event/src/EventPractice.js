@@ -1,68 +1,43 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class EventPractice extends Component {
-    //state에 인풋값을 넣어봄
-    state = {
-        username: '',
-        message: ''
-    }
+//이벤트연습을 클래스형 컴포넌트가 아닌 함수형 컴포넌트로 나타냄
 
-    /*constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-    }
-    메서드 바인딩은 원래 생성자 메서드에서 하는 것이 정석
-    하지만,  새 메서드를 만들 때마다 constructor를 수정해야하기 때문에 
-    transform-class-properties문법을 사용해서 화살표 함수로 메서드 정의
-    */
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-            //key값을 []로 감싼다
-        });
-    }
-
-    handleClick = () => {
-        alert(this.state.username + ' : ' + this.state.message);
-        this.setState({
-            username: '',
-            message: ''
-        });
-    }
-
-    handleKeyPress = (e) => {
+const EventPractice = () => {
+    const [username, setUsername] = useState('');
+    const [message, setMessage] = useState('');
+    const onChangeUsername = e => setUsername(e.target.value);
+    const onChangeMessage = e => setMessage(e.target.value);
+    const onClick = () => {
+        alert(username + ' : ' + message);
+        setUsername('');
+        setMessage('');
+    };
+    const onKeyPress = e => {
         if (e.key === 'Enter') {
-            this.handleClick();
+            onClick();
         }
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>이벤트 연습</h1>
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="username"
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                />
-                <input
-                    type="text"
-                    name="message"
-                    placeholder="message"
-                    value={this.state.message}
-                    onChange={this.handleChange}
-                    onKeyPress={this.handleKeyPress}
-                />
-                <button onClick={
-                    this.handleClick
-                }>확인</button>
-            </div>
-        );
-    }
+    };
+    return (
+        <div>
+            <h1>이벤트 연습</h1>
+            <input
+                type="text"
+                name="username"
+                placeholder="사용자명 입력"
+                value={username}
+                onChange={onChangeUsername}
+            />
+            <input
+                type="text"
+                name="messge"
+                placeholder="메시지를 입력하세요"
+                value={message}
+                onChange={onChangeMessage}
+                onKeyPress={onKeyPress}
+            />
+            <button onClick={onClick}>확인</button>
+        </div>
+    )
 }
 
 export default EventPractice;
