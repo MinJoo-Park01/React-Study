@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class EventPractice extends Component {
+    //state에 인풋값을 넣어봄
+    state = {
+        message: ''
+    }
     render() {
         return (
             <div>
@@ -11,7 +15,9 @@ class EventPractice extends Component {
                     placeholder="아무거나 입력해보세요"
                     onChange={
                         (e) => {
-                            console.log(e.target.value); //e는 syntheticEvent, 웹 브라우저의 네이티브 이벤트를 감싸는 객체
+                            this.setState({
+                                message: e.target.value
+                            }) //e는 syntheticEvent, 웹 브라우저의 네이티브 이벤트를 감싸는 객체
                             //e.target.value는 앞으로 변할 인풋값
                         }
                     }
