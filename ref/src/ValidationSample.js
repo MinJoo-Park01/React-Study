@@ -10,7 +10,7 @@ class ValidationSample extends Component {
 
     handleChange = (e) => {
         this.setState({
-            password: e.target.value;
+            password: e.target.value
         });
     }
 
