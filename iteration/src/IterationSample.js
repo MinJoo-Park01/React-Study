@@ -23,8 +23,15 @@ const IterationSample = () => {
         setInputText(''); //inputText값을 비움
     };
 
+    const onRemove = id => {
+        const nextNames = names.filter(name => name.id !== id);
+        setNames(nextNames); //id가 지정된거랑 다르다면 다음 아이디를 앞으로 불러와라?
+    }
 
-    const namesList = names.map(name => <li key={name.id}>{name.text}</li>);
+
+    const namesList = names.map(name => <li key={name.id} onDoubleClick={() => onRemove(name.id)}>
+        {/*왜 onDoubleClick을 저기다가 넣어야되는 걸까?*/}
+        {name.text}</li>);
     return (
         <>
             <input value={inputText} onChange={onChange} />
