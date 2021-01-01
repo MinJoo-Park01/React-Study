@@ -20,6 +20,7 @@ class ValidationSample extends Component {
             validated: this.state.password === '0000',  //password가 0000일때 true로 반환하라는 건가?
             password: ''
         })
+        this.input.focus();
     }
 
     onKeyPress = (e) => {
@@ -27,7 +28,6 @@ class ValidationSample extends Component {
             this.handleButtonClick();
         }
     }
-    input;
 
     render() {
         return (
