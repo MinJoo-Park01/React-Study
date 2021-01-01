@@ -14,7 +14,8 @@ const IterationSample = () => {
     */
     //데이터 배열을 컴포넌트 배열로 변환
     const names = ['눈사람', '얼음', '눈', '바람'];
-    const nameList = names.map(name => <li>{name}</li>);
+    const nameList = names.map(name => <li key={index}>{name}</li>);
+    //고유한 값이 없을 때만, key 값을 index로 사용
     return <ul>{nameList}</ul>
 
 }
