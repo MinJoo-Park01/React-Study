@@ -17,9 +17,11 @@ class ValidationSample extends Component {
     handleButtonClick = () => {
         this.setState({
             clicked: true,
-            validated: this.state.password === '0000'  //password가 0000일때 true로 반환하라는 건가?
+            validated: this.state.password === '0000',  //password가 0000일때 true로 반환하라는 건가?
+            password: ''
         })
     }
+
     onKeyPress = (e) => {
         if (e.key === 'Enter') {
             this.handleButtonClick();
