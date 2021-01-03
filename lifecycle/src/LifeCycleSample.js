@@ -1,13 +1,13 @@
-import React, { component } from 'react';
+import React, { Component } from 'react';
 
-class LifeCycle extends Componenet {
+class LifeCycleSample extends Component {
     state = {
         number: 0,
         color: null
     }
 
 
-    myRef = null //ref 설정할 부분
+    myRef = null; //ref 설정할 부분
 
     constructor(props) {
         super(props);
@@ -23,7 +23,7 @@ class LifeCycle extends Componenet {
     }
 
     componentDidMount() {
-        console.log('componenetDidMount');
+        console.log('componentDidMount');
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -44,7 +44,7 @@ class LifeCycle extends Componenet {
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('getSnapshotBeforeUpdate');
-        if (prevProps.color !== nextProps.color) {
+        if (prevProps.color !== this.props.color) {
             return this.myRef.style.color;
         }
         return null;
