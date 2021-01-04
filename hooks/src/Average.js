@@ -21,6 +21,8 @@ const Average = () => {
         setNumber('');
     };
 
+    const avg = usememo(() => getAverage(list), [list]);
+
     return (
         <div>
             <input value={number} onChange={onChange} />
@@ -31,7 +33,7 @@ const Average = () => {
                 ))}
             </ul>
             <div>
-                <b>평균값:</b>{getAverage(list)}
+                <b>평균값:</b>{avg}  {/* {getAverage(list)} */}
             </div>
         </div>
 
