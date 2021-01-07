@@ -6,6 +6,7 @@ const Info = () => {
         name: '',
         nickname: ''
     });
+    //hello
     //const [name, setName] = useState('');
     //const [nickname, setNickname] = useState('');
 
