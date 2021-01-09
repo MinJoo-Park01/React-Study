@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ScrollBox from '../../ref/src/ScrollBox';
 import Average from './Average';
 import Counter from './Counter';
 import Info from './Info';
@@ -18,7 +19,7 @@ const App = () => {
   //     {visible && <Info />}
   //   </div>
   // );
-  return <Average />
+  return <ScrollBox />
 };
 
 export default App;
