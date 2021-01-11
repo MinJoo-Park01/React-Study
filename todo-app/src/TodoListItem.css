@@ -3,7 +3,8 @@
     display: flex;
     align-items: center;
 }
-:nth-child(even){
+
+.TodoListItem:hover{
     background: #f8f9fa;
 }
 
@@ -16,4 +17,34 @@
 
 .checkbox .svg{
     font-size: 1.5rem;
+}
+
+.checkbox .text{
+    margin-left: 0.5rem;
+    flex:1;
+}
+
+.TodoListItem .checked svg{
+    color: #22b8cf;
+}
+
+.TodoListItem .checked .text{
+    color:#adb5bd;
+    text-decoration: line-through;
+}
+
+.TodoListItem .remove{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    cursor: pointer;
+}
+
+.remove:hover{
+    color: #ff8787;
+}
+
+.TodoListItem + .TodoListItem {
+    border-top: 1px solid #f1f3f5;
 }
