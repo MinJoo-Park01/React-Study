@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 class ScrollBox extends Component {
     scrollChange = (param) => {
-        //const { scrollHeight, clientHeight } = this.box;
+        const { scrollHeight, clientHeight } = this.box;
         /*위 코드는 비구조화 할당 문법 사용
         다음 코드와 동일
         const scrollHeight = this.box.scrollHeight;
         const clientHeight = this.box.clientHeight;
         */
-        if (param === 'u') { //up일때 내릴 준비
-            this.box.scrollTop = this.box.scrollHeight - this.box.clientHeight;
+
+        if (param === 'u') {
+            this.box.scrollTop = scrollHeight - clientHeight;
         }
         else {
             this.box.scrollTop = 0;

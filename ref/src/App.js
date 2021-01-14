@@ -6,22 +6,24 @@ import ScrollBox from './ScrollBox';
 class App extends Component {
   state = {
     upDown: 'u',
-    value: 'To Bottom'
+    value: 'To Bottom',
   }
+
   upOrDown = () => {
     if (this.state.upDown === 'u') {
       this.setState({
         upDown: 'd',
-        value: 'To Top'
+        value: 'To Top',
       });
     }
     else {
       this.setState({
         upDown: 'u',
-        value: 'To Buttom'
+        value: 'To Bottom',
       })
     }
   }
+
   render() {
     return (
       <>
