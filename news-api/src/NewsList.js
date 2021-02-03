@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-component';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import NewsItem from './NewsItem';
+import axios from 'axios';
 
 const NewsListBlock = styled.div`
     box-sizing: border-box;
@@ -14,6 +15,15 @@ const NewsListBlock = styled.div`
         padding-right: 1rem;
     }
 `;
+
+const NewsList = () => {
+    const [articles, setArticles] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        //async
+    })
+}
 
 const sampleArticle = {
     title: '제목',
